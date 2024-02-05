@@ -2,12 +2,19 @@ public class Singleton {
 
     private static Singleton instance;
 
+    private Bank bank;
+
     // TODO 1 : fix singleton bad implementation
+
+    private Singleton() {
+    }
     public static Singleton getInstance() {
-        return new Singleton();
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
     }
 
-    private Bank bank;
 
     public void openAccount(int value) {
         bank = new Bank(value);
